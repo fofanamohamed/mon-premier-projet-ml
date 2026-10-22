@@ -26,3 +26,9 @@ jobs:
 
       - name: Executer les tests
         run: python -m pytest tests/ -v
+
+      - name: Construire l'image docker
+        run: docker build -t iris-ml .
+     
+      - name: Executer les tests dans Docker
+        run: docker run --rm iris-ml
